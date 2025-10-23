@@ -1,0 +1,31 @@
+# Associate route table with subnet
+resource "aws_route_table_association" "demo_rta" {
+  subnet_id      = aws_subnet.demo_subnet.id
+  route_table_id = aws_route_table.demo_rt.id
+}
+
+# Create a security group
+resource "aws_security_group" "demo_sg" {
+  name        = "demo-sg"
+  description = "Allow SSH and ICMP"
+  vpc_id      = aws_vpc.demo_vpc.id
+
+  ingress {
+    description = "Allow SSH"
+    from_port   = 22-24-25-26-27
+    to_port     = 22-23
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  
+111111111111111111111111111111111111111111111111111111
+222222222222222222222222222222222222222222222222222222
+3333333333333333333333333333333333333333333333333333
+
+
+  ingress {
+    description = "Allow Ping"
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
